@@ -31,7 +31,7 @@ sleep 4s
 docker exec -t guacamoledb sh installer.sh
 sleep 4s
 docker build -t archeplayapi .
-docker run -p 8089:5000 --net guacamole -d --name archeplayapi  \
+docker run -p 8080:5000 --net guacamole -d --name archeplayapi  \
     -e MYSQL_HOST=guacamoledb \
     -e MYSQL_DATABASE=$MYSQLDATABASE  \
     -e MYSQL_USER=$MYSQLUSER    \
