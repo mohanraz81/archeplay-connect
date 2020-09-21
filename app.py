@@ -17,7 +17,7 @@ def create_task():
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     
-    event = request.json['title']
+    event = request.json['add']
     try:
       conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
       logger.info("Connection to RDS MySQL")
@@ -52,7 +52,7 @@ def create_task():
       sql_salt = "SET @salt = UNHEX(SHA2(UUID(), 256));"
       cursor.execute(sql_salt)
       try:
-        sql_user_insert = "INSERT INTO guacamole_user (entity_id,password_salt,password_hash,password_date) VALUES ('{1}',  @salt, UNHEX(SHA2(CONCAT('{0}', HEX(@salt)), 256)), CURRENT_TIMESTAMP)".format('redhat123', LastInsertId)
+        sql_user_insert = "INSERT INTO guacamole_user (entity_id,password_salt,password_hash,password_date,expired) VALUES ('{1}',  @salt, UNHEX(SHA2(CONCAT('{0}', HEX(@salt)), 256)), CURRENT_TIMESTAMP, 1)".format(EmailId, LastInsertId)
         print("---Executing User Creation--------")
         cursor.execute(sql_user_insert)
         print(sql_user_insert)

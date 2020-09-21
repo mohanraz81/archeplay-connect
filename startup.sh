@@ -1,8 +1,8 @@
 #!/bin/bash
-MYSQLROOTPASSWORD=dbpasssword
-MYSQLDATABASE=guacamole_db    
-MYSQLUSER=guacamole
-MYSQLPASSWORD=guacamole
+MYSQLROOTPASSWORD=aprootpassword
+MYSQLDATABASE=apdbname
+MYSQLUSER=apdbuser
+MYSQLPASSWORD=apdbpassword
 yum install docker -y
 usermod -a -G docker ec2-user
 systemctl  start docker
@@ -31,11 +31,14 @@ sleep 4s
 docker exec -t guacamoledb sh installer.sh
 sleep 4s
 docker build -t archeplayapi .
-docker run -p 8080:5000 --net guacamole -d --name archeplayapi  \
+docker run --net guacamole -d --name archeplayapi  \
     -e MYSQL_HOST=guacamoledb \
     -e MYSQL_DATABASE=$MYSQLDATABASE  \
     -e MYSQL_USER=$MYSQLUSER    \
     -e MYSQL_PASSWORD=$MYSQLPASSWORD \
     archeplayapi
+docker build -t archeplayproxy ./nginx
+docker run --net guacamole -d --name archeplayproxy -p 9000:80 archeplayproxy
+
     
     
