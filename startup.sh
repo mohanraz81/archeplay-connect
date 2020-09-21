@@ -25,7 +25,7 @@ docker run --net guacamole --name guacamole  \
     -e GUACD_HOSTNAME=guacd \
     -d -p 80:8080 guacamole/guacamole
 sleep 10s
-echo "mysql -u root -p$MYSQLROOTPASSWORD guacamole_db < initdb.sql" > installer.sh
+echo "mysql -u root -p$MYSQLROOTPASSWORD $MYSQLDATABASE < initdb.sql" > installer.sh
 docker cp installer.sh guacamoledb:./installer.sh
 sleep 4s
 docker exec -t guacamoledb sh installer.sh
