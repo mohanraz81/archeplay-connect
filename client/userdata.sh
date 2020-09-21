@@ -58,3 +58,4 @@ then
   sed -i "s/EMAILID/$EMAILID/g" addtoconnect.sh
   sed -i "s/PASSWORD/$Password/g" addtoconnect.sh
   sh -x addtoconnect.sh
+fi
