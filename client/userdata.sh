@@ -1,6 +1,4 @@
 os=DEPENDOS
-git clone https://github.com/mohanraz81/archeplay-connect
-cd archeplay-connect/client
 CONNECTPRIVATEIP=DEPENDCONNECTPRIVATEIP
 EMAILID=DEPENDEMAILID
 Password=DEPENDPASSWORD
