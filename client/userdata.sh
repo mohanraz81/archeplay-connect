@@ -44,10 +44,9 @@ then
   sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
   systemctl restart sshd
   echo centos:$Password | sudo chpasswd
-  cd /usr/local
   wget http://ftp.mozilla.org/pub/firefox/releases/76.0/linux-x86_64/en-US/firefox-76.0.tar.bz2
   tar -xvf firefox-76.0.tar.bz2
-  ln -s /usr/local/firefox/firefox /usr/bin/firefox
+  ln -s ./firefox/firefox /usr/bin/firefox
   USERNAME= "centos"
   PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
   INSTANCEID=`curl http://169.254.169.254/latest/meta-data/instance-id` 
@@ -74,10 +73,9 @@ then
   sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
   systemctl restart sshd
   echo ec2-user:$Password | sudo chpasswd
-  cd /usr/local
   wget http://ftp.mozilla.org/pub/firefox/releases/76.0/linux-x86_64/en-US/firefox-76.0.tar.bz2
   tar -xvf firefox-76.0.tar.bz2
-  ln -s /usr/local/firefox/firefox /usr/bin/firefox
+  ln -s ./firefox/firefox /usr/bin/firefox
   USERNAME="ec2-user"
   PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
   INSTANCEID=`curl http://169.254.169.254/latest/meta-data/instance-id` 
