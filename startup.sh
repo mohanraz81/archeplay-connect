@@ -1,6 +1,6 @@
 #!/bin/bash
 MYSQLROOTPASSWORD=aprootpassword
-MYSQLDATABASE=apdbname
+MYSQLDATABASE=guacamole_db
 MYSQLUSER=apdbuser
 MYSQLPASSWORD=apdbpassword
 yum install docker -y
