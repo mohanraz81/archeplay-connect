@@ -26,7 +26,7 @@ then
   sed -i "s/INSTANCEID/$INSTANCEID/g" addtoconnect.sh
   sed -i "s/EMAILID/$EMAILID/g" addtoconnect.sh
   sed -i "s/PASSWORD/$Password/g" addtoconnect.sh
-  sh -x addtoconnect.sh
+  # sh -x addtoconnect.sh
   
 elif [ $os == "CentOS" ]
 then
@@ -54,7 +54,7 @@ then
   sed -i "s/INSTANCEID/$INSTANCEID/g" addtoconnect.sh
   sed -i "s/EMAILID/$EMAILID/g" addtoconnect.sh
   sed -i "s/PASSWORD/$Password/g" addtoconnect.sh
-  sh -x addtoconnect.sh
+  # sh -x addtoconnect.sh
   
   elif [ $os == "AmazonLinux2" ]
 then
@@ -83,5 +83,5 @@ then
   sed -i "s/INSTANCEID/$INSTANCEID/g" addtoconnect.sh
   sed -i "s/EMAILID/$EMAILID/g" addtoconnect.sh
   sed -i "s/PASSWORD/$Password/g" addtoconnect.sh
-  sh -x addtoconnect.sh
+  # sh -x addtoconnect.sh
 fi
