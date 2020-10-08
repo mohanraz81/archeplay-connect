@@ -96,14 +96,14 @@ def create_task():
       print(sql_conn_assoc_with_user)
       cursor.execute(sql_conn_assoc_with_user)
       print("done")
-      if ConnectionType == "rdp":
-        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'password', '{1}');".format(LastConnectionId, eachinstance['Password'])
-        print(sql_conn_with_password_param)
-        cursor.execute(sql_conn_with_password_param)
-      if ConnectionType == "ssh":
-        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'private-key', '{1}');".format(LastConnectionId, eachinstance['PrivateKey'])
-        print(sql_conn_with_password_param)
-        cursor.execute(sql_conn_with_password_param)
+      # if ConnectionType == "rdp":
+      sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'password', '{1}');".format(LastConnectionId, eachinstance['Password'])
+      print(sql_conn_with_password_param)
+      cursor.execute(sql_conn_with_password_param)
+      # if ConnectionType == "ssh":
+      #   sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'private-key', '{1}');".format(LastConnectionId, eachinstance['PrivateKey'])
+      #   print(sql_conn_with_password_param)
+      #   cursor.execute(sql_conn_with_password_param)
       
       print("All sql statements added")
       eachinstance.update({"ConnectionUrl": "https://connect.vms.courseandlabs.com/archeplay/#/client/?username=EmailId&password=redhat123"})
