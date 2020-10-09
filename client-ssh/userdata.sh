@@ -17,7 +17,7 @@ then
   systemctl restart sshd
   echo ubuntu:$Password  | sudo chpasswd
   # apt install firefox -y
-  USERNAME= "ubuntu"
+  USERNAME="ubuntu"
   PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
   INSTANCEID=`curl http://169.254.169.254/latest/meta-data/instance-id` 
   sed -i "s/CONNECTPRIVATEIP/$CONNECTPRIVATEIP/g" addtoconnect.sh
@@ -45,7 +45,7 @@ then
   # wget http://ftp.mozilla.org/pub/firefox/releases/76.0/linux-x86_64/en-US/firefox-76.0.tar.bz2
   # tar -xvf firefox-76.0.tar.bz2
   # ln -s `pwd`/firefox/firefox /usr/bin/firefox
-  USERNAME= "centos"
+  USERNAME="centos"
   PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
   INSTANCEID=`curl http://169.254.169.254/latest/meta-data/instance-id` 
   sed -i "s/CONNECTPRIVATEIP/$CONNECTPRIVATEIP/g" addtoconnect.sh
